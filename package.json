@@ -19,6 +19,7 @@
   "homepage": "https://github.com/StanimirResh/SoftUni-Cubicle#readme",
   "dependencies": {
     "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
     "handlebars": "^4.7.7",
     "nodemon": "^2.0.16"
   }
