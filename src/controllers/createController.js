@@ -1,4 +1,4 @@
-const { save } = require('../services/cubeCreationService');
+const { save } = require('../services/cubeService');
 const cubes = require('../database.json');
 
 const router = require('express').Router();
