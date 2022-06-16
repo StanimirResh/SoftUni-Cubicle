@@ -6,8 +6,8 @@ const createController = require('./controllers/createController');
 const notFoundController = require('./controllers/notFoundController');
 
 router.get('/', homeController)
-router.get('/about', aboutController);
-router.all('/create', createController);
-router.all('*', notFoundController);
+router.use('/about', aboutController);
+router.use('/create', createController);
+router.use('*', notFoundController);
 
 module.exports = router;

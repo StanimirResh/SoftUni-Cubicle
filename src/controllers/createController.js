@@ -3,11 +3,11 @@ const fs = require('fs/promises');
 const cubes = require('../database.json');
 
 
-router.get('/create', (req, res) => {
+router.get('/', (req, res) => {
     res.render('create');
 })
 
-router.post('/create', (req, res) => {
+router.post('/', (req, res) => {
     const cube = req.body;
     cubes.push(cube);
 
