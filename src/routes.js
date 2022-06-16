@@ -7,7 +7,7 @@ const notFoundController = require('./controllers/notFoundController');
 
 router.get('/', homeController)
 router.get('/about', aboutController);
-router.get('/create', createController);
+router.all('/create', createController);
 router.all('*', notFoundController);
 
 module.exports = router;
