@@ -10,3 +10,5 @@ exports.save = async (cube) => {
 exports.getCube = (id) => {
     return cubes[id];
 }
+
+exports.getAllCubes = () => cubes;

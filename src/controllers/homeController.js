@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const cubes = require('../database.json');
+const { getAllCubes } = require('../services/cubeService')
 
 router.get('/', (req, res) => {
     res.render('index', {
-        cubes
+        cubes : getAllCubes()
     });
 })
 
