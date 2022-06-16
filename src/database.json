@@ -10,9 +10,9 @@
     "difficulty": 6
   },
   {
-    "name": "Classic Rubic Cube",
-    "description": "The well-known 3x3 good old basic rubic cube",
-    "imageUrl": "https://www.researchgate.net/profile/Marianna-Madry/publication/256662553/figure/fig6/AS:668627997061131@1536424745415/Solving-the-classic-Rubiks-Cube-implies-arranging-its-tiles-such-that-each-face-is.jpg",
-    "difficultyLevel": "3"
+    "name": "Classic",
+    "description": "Test",
+    "imageUrl": "Test",
+    "difficulty": "3"
   }
 ]
