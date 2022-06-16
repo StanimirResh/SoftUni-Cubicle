@@ -6,3 +6,7 @@ exports.save = async (cube) => {
     cubes.push(cube);
     await fs.writeFile('./src/database.json', JSON.stringify(cubes, '', 2));
 }
+
+exports.getCube = (id) => {
+    return cubes[id];
+}
