@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { getAllCubes } = require('../services/cubeService');
 const { search } = require('../services/searchService');
 
 router.get('/', (req, res) => {

@@ -5,6 +5,7 @@ exports.search = (query) => {
     let fromDifficulty = query.from;
     let toDifficulty = query.to;
 
+    
     if (search || fromDifficulty || toDifficulty){
         if (fromDifficulty == ''){
             fromDifficulty = 0
@@ -14,12 +15,13 @@ exports.search = (query) => {
         }
         return cubes.filter(x => {
             if (x.difficulty >= fromDifficulty && x.difficulty <= toDifficulty){
-                if (x.name.includes(search)){
-                    return 1;
+                if (x.name.toLowerCase().includes(search.toLowerCase())){
+                    return -1;
                 }
             }
         })
-    }else{
+    }
+    else{
         return cubes;
     }
 }
