@@ -6,7 +6,7 @@ const router = require('express').Router();
 
 router.get('/create', (req, res) => {
     console.log(cubes);
-    res.render('create');
+    res.render('createCube');
 })
 
 router.post('/create', async (req, res) => {
