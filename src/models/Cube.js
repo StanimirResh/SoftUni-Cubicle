@@ -1,0 +1,30 @@
+const mongoose = require('mongoose');
+
+const cubeSchema = new mongoose.Schema({
+    name : {
+        type: String,
+        required: true
+    },
+    description : {
+        type: String,
+        required: true
+    },
+    imageUrl : {
+        type: String,
+        required : true
+    },
+    difficulty : {
+        type: Number,
+        required : true,
+        min: 0,
+        max: 6
+    }
+})
+
+cubeSchema.path('imageUrl').validate(function() {
+    return this.imageUrl.startsWith('http');
+}, 'Image url should begin with http/https')
+
+const cube = mongoose.model(cubeSchema);
+
+module.exports = cube;
