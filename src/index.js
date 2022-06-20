@@ -4,6 +4,7 @@ const {
 const express = require('express');
 const handlebars = require('express-handlebars');
 const router = require('./routes.js');
+const mongoose = require('mongoose');
 
 const app = express();
 
