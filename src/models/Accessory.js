@@ -18,6 +18,10 @@ const accessorySchema = new mongoose.Schema({
             },
             message: 'Image url should begin with http/https'
         }
+    },
+    cubes: {
+        type: mongoose.Types.ObjectId,
+        ref: 'Cube'
     }
 })
 
