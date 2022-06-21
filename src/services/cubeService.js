@@ -1,4 +1,3 @@
-const fs = require('fs/promises');
 const Cube = require('../models/Cube');
 
 exports.save = async (cube) => {
