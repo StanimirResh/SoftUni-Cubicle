@@ -18,7 +18,7 @@ app.use(router)
 
 mongoose.connect(dbUrl).then(() => {
     console.log('Connected to DB!');
-    app.listen(5000);
 }).catch(() => {
     console.log('Couldnt connect to DB!');
 })
+app.listen(5000);

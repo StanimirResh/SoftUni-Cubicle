@@ -13,16 +13,16 @@ const accessorySchema = new mongoose.Schema({
         type: String,
         required: true,
         validate: {
-            validator: function() {
+            validator: function () {
                 return this.imageUrl.startsWith('http')
             },
             message: 'Image url should begin with http/https'
         }
     },
-    cubes: {
+    cubes: [{
         type: mongoose.Types.ObjectId,
         ref: 'Cube'
-    }
+    }]
 })
 
 // accessorySchema.path('imageUrl').validate(function() {
