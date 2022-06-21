@@ -1,6 +1,11 @@
-const { getAllAccessories } = require('../services/accessoryService');
 const {
-    getCube, attachAccessory,
+    filteredAccessories,
+    getAllAccessories
+} = require('../services/accessoryService');
+const {
+    getCube,
+    getPopulatedCube,
+    attachAccessory,
 } = require('../services/cubeService');
 const mongoose = require('mongoose');
 
@@ -18,7 +23,8 @@ router.post('/create', async (req, res) => {
 })
 
 router.get('/details/:id', async (req, res) => {
-    const cube = await getCube(req.params.id);
+    const cube = await getPopulatedCube(req.params.id);
+
     res.render('details', {
         cube
     })
@@ -27,13 +33,16 @@ router.get('/details/:id', async (req, res) => {
 router.get('/attach/:cubeId', async (req, res) => {
     let cube = await getCube(req.params.cubeId);
     let accessories = await getAllAccessories();
-
-    res.render('attachAccessory', {cube, accessories});
+    accessories = await filteredAccessories(cube)
+    res.render('attachAccessory', {
+        cube,
+        accessories
+    });
 })
 
 router.post('/attach/:cubeId', async (req, res) => {
-    await attachAccessory(req.params.cubeId, req.body.accessory)  
-    res.redirect(`/cube/details/${req.params.cubeId}`)  
+    await attachAccessory(req.params.cubeId, req.body.accessory)
+    res.redirect(`/cube/details/${req.params.cubeId}`)
 })
 
 module.exports = router;

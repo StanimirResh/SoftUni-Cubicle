@@ -7,3 +7,7 @@ exports.create = async (accessory) => {
 exports.getAllAccessories = async () => {
     return await Accessory.find().lean();
 }
+
+exports.filteredAccessories = async (cube) => {
+   return await Accessory.find({_id: {$nin: cube.accessories}}).lean();
+}
