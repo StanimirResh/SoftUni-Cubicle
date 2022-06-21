@@ -1,11 +1,9 @@
 const { save, getCube } = require('../services/cubeService');
-const cubes = require('../database.json');
 
 const router = require('express').Router();
 
 
 router.get('/create', (req, res) => {
-    console.log(cubes);
     res.render('createCube');
 })
 

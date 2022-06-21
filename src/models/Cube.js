@@ -25,6 +25,6 @@ cubeSchema.path('imageUrl').validate(function() {
     return this.imageUrl.startsWith('http');
 }, 'Image url should begin with http/https')
 
-const cube = mongoose.model(cubeSchema);
+const Cube = mongoose.model('Cube', cubeSchema);
 
-module.exports = cube;
+module.exports = Cube;

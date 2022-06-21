@@ -1,14 +1,12 @@
-const cubes = require('../database.json');
 const fs = require('fs/promises');
+const Cube = require('../models/Cube');
 
 exports.save = async (cube) => {
-    cube.id = cubes.length;
-    cubes.push(cube);
-    await fs.writeFile('./src/database.json', JSON.stringify(cubes, '', 2));
+    Cube.create(cube);
 }
 
 exports.getCube = (id) => {
-    return cubes[id];
+    return Cube.findById(id)
 }
 
 exports.getAllCubes = () => cubes;
