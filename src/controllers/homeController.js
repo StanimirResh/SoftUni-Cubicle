@@ -1,10 +1,12 @@
 const router = require('express').Router();
-const { search } = require('../services/searchService');
+const {
+    search
+} = require('../services/searchService');
 
 router.get('/', async (req, res) => {
     let query = req.query;
     res.render('index', {
-        cubes : await search(query)
+        cubes: await search(query)
     });
 })
 

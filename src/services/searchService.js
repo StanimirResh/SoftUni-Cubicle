@@ -6,25 +6,23 @@ exports.search = async (query) => {
     let toDifficulty = query.to;
 
     let cubes = await Cube.find().lean();
-    console.log(cubes);
-    
-    if (search || fromDifficulty || toDifficulty){
-        if (fromDifficulty == ''){
+
+    if (search || fromDifficulty || toDifficulty) {
+        if (fromDifficulty == '') {
             fromDifficulty = 0
         }
-        if (toDifficulty == ''){
+        if (toDifficulty == '') {
             toDifficulty = 6
         }
 
         return cubes.filter(x => {
-            if (x.difficulty >= fromDifficulty && x.difficulty <= toDifficulty){
-                if (x.name.toLowerCase().includes(search.toLowerCase())){
+            if (x.difficulty >= fromDifficulty && x.difficulty <= toDifficulty) {
+                if (x.name.toLowerCase().includes(search.toLowerCase())) {
                     return -1;
                 }
             }
         })
-    }
-    else{
+    } else {
         return cubes;
     }
 }

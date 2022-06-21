@@ -5,8 +5,8 @@ exports.save = async (cube) => {
     Cube.create(cube);
 }
 
-exports.getCube = (id) => {
-    return Cube.findById(id)
+exports.getCube = async (id) => {
+    return await Cube.findById(id).lean();
 }
 
 exports.getAllCubes = () => cubes;

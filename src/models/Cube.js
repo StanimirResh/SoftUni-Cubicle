@@ -1,27 +1,27 @@
 const mongoose = require('mongoose');
 
 const cubeSchema = new mongoose.Schema({
-    name : {
+    name: {
         type: String,
         required: true
     },
-    description : {
+    description: {
         type: String,
         required: true
     },
-    imageUrl : {
+    imageUrl: {
         type: String,
-        required : true
+        required: true
     },
-    difficulty : {
+    difficulty: {
         type: Number,
-        required : true,
+        required: true,
         min: 0,
         max: 6
     }
 })
 
-cubeSchema.path('imageUrl').validate(function() {
+cubeSchema.path('imageUrl').validate(function () {
     return this.imageUrl.startsWith('http');
 }, 'Image url should begin with http/https')
 
