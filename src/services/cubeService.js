@@ -6,8 +6,13 @@ exports.save = async (cube) => {
 }
 
 exports.getCube = async (id) => {
+    return await Cube.findById(id).lean();
+}
+
+exports.getPopulatedCube = async (id) => {
     return await Cube.findById(id).populate('accessories').lean();
 }
+
 
 exports.search = async (query) => {
     let search = query.search;
