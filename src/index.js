@@ -1,11 +1,13 @@
 const express = require('express');
-const handlebars = require('express-handlebars');
-const router = require('./routes.js');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser')
+const router = require('./routes.js');
 
 const dbUrl = 'mongodb://localhost:27017/cubeApp'
 const app = express();
+
 app.use('/static', express.static('public'))
+app.use(cookieParser());
 app.use(express.urlencoded({
     extended: false
 }))

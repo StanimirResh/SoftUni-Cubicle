@@ -9,10 +9,13 @@ router.get('/login', (req, res) => {
 })
 
 router.post('/login', async (req, res) => {
-    let user = await loginUser(req.body);
-    if (!user) {
+    let token = await loginUser(req.body);
+
+    if (!token) {
         res.redirect('/404')
     }
+    
+    res.cookie('Session', token);
     res.redirect('/');
 })
 
@@ -21,11 +24,13 @@ router.get('/register', (req, res) => {
 })
 
 router.post('/register', async (req, res) => {
-    let user = await registerUser(req.body)
+    let token = await registerUser(req.body)
 
-    if (!user) {
+    if (!token) {
         res.redirect('/404')
     }
+
+    res.cookie('Session', token)
 
     res.redirect('/')
 })
