@@ -45,8 +45,22 @@ router.post('/attach/:cubeId', async (req, res) => {
     res.redirect(`/cube/details/${req.params.cubeId}`)
 })
 
-router.get('/edit/:cubeId', (req,res) => {
-    res.render('editCube');
+router.get('/edit/:cubeId', async (req, res) => {
+    let cube = await getCube(req.params.cubeId)
+
+    if (!cube) {
+        res.redirect('/404');
+    }
+
+    res.render('editCube', {
+        cube
+    });
+})
+
+router.post('/edit/:cubeId', (req, res) => {
+    let modifiedCube = editCube(req.params.cubeId, req.body)
+     
+    res.redirect(`/cube/details/${cube._id}`);
 })
 
 module.exports = router;
