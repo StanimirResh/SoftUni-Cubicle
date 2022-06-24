@@ -10,8 +10,13 @@ router.get('/register', (req, res) => {
 })
 
 router.post('/register', async (req, res) => {
-    await registerUser(req.body)
-    res.redirect('/')
+    let user = await registerUser(req.body)
+
+    if (!user){
+        res.redirect('/404')
+    }
+
+    res.redirect('/user/login')
 })
 
 

@@ -13,5 +13,6 @@ router.use('/cube', cubeController);
 router.use('/accessory', accessoryController);
 router.use('/user', authController)
 router.use('*', notFoundController);
+router.use('/404', notFoundController);
 
 module.exports = router;
