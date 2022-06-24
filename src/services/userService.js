@@ -2,9 +2,7 @@ const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const saltRounds = 5;
-const secret = 'kucheto1'
-
+const {saltRounds, secret} = require('../constants.js')
 exports.registerUser = async (userData) => {
     if (userData.password !== userData.repeatPassword) {
         return false

@@ -1,6 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser')
+const {
+    auth
+} = require('./middlewares/authMiddleware');
 const router = require('./routes.js');
 
 const dbUrl = 'mongodb://localhost:27017/cubeApp'
@@ -14,7 +17,7 @@ app.use(express.urlencoded({
 
 require('./config/handlebars.js')(app);
 
-
+app.use(auth);
 app.use(router)
 
 
