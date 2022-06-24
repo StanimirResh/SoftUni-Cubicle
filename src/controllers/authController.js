@@ -1,8 +1,19 @@
 const router = require('express').Router();
-const {registerUser} = require('../services/userService')
+const {
+    registerUser,
+    loginUser
+} = require('../services/userService')
 
 router.get('/login', (req, res) => {
     res.render('user/loginPage');
+})
+
+router.post('/login', async (req, res) => {
+    let user = await loginUser(req.body);
+    if (!user) {
+        res.redirect('/404')
+    }
+    res.redirect('/');
 })
 
 router.get('/register', (req, res) => {
@@ -12,11 +23,11 @@ router.get('/register', (req, res) => {
 router.post('/register', async (req, res) => {
     let user = await registerUser(req.body)
 
-    if (!user){
+    if (!user) {
         res.redirect('/404')
     }
 
-    res.redirect('/user/login')
+    res.redirect('/')
 })
 
 
