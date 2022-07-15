@@ -10,10 +10,20 @@ exports.registerUser = async (userData) => {
 
     let hashedPassword = await bcrypt.hash(userData.password, saltRounds);
 
-    return User.create({
+    let user = User.create({
         username: userData.username,
         password: hashedPassword
     })
+
+    const token = jwt.sign({
+        _id: curUser._id,
+        username: curUser.username
+    }, secret, {
+        expiresIn: '2d'
+    })
+
+    return token;
+
 }
 
 exports.loginUser = async (userData) => {
