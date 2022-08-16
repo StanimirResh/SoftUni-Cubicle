@@ -12,7 +12,7 @@ const app = express();
 app.use('/static', express.static('public'))
 app.use(cookieParser());
 app.use(express.urlencoded({
-    extended: false
+    extended: false 
 }))
 
 require('./config/handlebars.js')(app);
@@ -26,4 +26,4 @@ mongoose.connect(dbUrl).then(() => {
 }).catch(() => {
     console.log('Couldnt connect to DB!');
 })
-app.listen(5000);
+app.listen(5000); 

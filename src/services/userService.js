@@ -16,7 +16,7 @@ exports.registerUser = async (userData) => {
     })
 
     const token = jwt.sign({
-        _id: curUser._id,
+        _id: user._id,
         username: curUser.username
     }, secret, {
         expiresIn: '2d'

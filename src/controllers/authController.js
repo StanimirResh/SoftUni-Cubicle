@@ -25,7 +25,7 @@ router.get('/register', (req, res) => {
 
 router.post('/register', async (req, res) => {
     let token = await registerUser(req.body)
-
+ 
     if (!token) {
         res.redirect('/404')
     }
